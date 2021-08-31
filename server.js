@@ -44,8 +44,6 @@ app.post("/", (req, res) => {
 
 
 
-
-
-app.listen(3000, () => {
+app.listen(3000 || process.env.PORT, () => {
     console.log('Server running at port 3000!')
 })
