@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <title>WeatherApp</title>
+</head>
+
+<body class="flex justify-center items-center h-screen bg-black text-white">
+    <div class="container p-2 rounded bg-purple-800 text-white mx-10 lg:mx-48">
+        <form action="/" method="POST">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="flex justify-center align-center pt-2">
+                    <label class="text-2xl font-semibold">Country Name</label>
+                </div>
+                <input type='text' class="rounded mx-4 lg:mx-24 text-gray-800 px-2 py-1" id='cityName' name='cityName'
+                    required>
+            </div>
+            <div class="flex justify-center align-center">
+                <button class="bg-green-700 border-2 border-yellow-500 hover:bg-green-600 w-auto px-4 mt-4 py-1 rounded"
+                    type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
