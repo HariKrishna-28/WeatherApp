@@ -6,13 +6,20 @@ const baseUrl = "http://localhost:5000"
 const FormInfo = () => {
     const [weatherData, setWeatherData] = useState([])
     const nameRef = useRef()
-    const [name, setName] = useState("India")
+    const [name, setName] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         // if (nameRef.current.value == null) return
-        axios.get(`${baseUrl}/weather`).then(res => {
+        axios.get(`${baseUrl}/weather/${name}`).then(res => {
             setWeatherData(res.data)
-            console.log(weatherData)
+            // console.log(weatherData)
+            setLoading(true)
+            // console.log(weatherData.length)
+            // const weatherTemp = weatherData.main.temp
+            //         const weatherDescription = weatherData.weather[0].description
+            //         const weatherIcon = weatherData.weather[0].icon
+            //         const imageUrl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
             console.log("rendered useEffect");
         })
         // eslint-disable-next-line
@@ -30,6 +37,8 @@ const FormInfo = () => {
     //     })
     // }
 
+    // console.log(weatherData)
+
     return (
         <>
 
@@ -45,7 +54,7 @@ const FormInfo = () => {
                             <input
                                 type='text'
                                 ref={nameRef}
-                                className="shadow appearance-none leading-tight focus:outline-none focus:shadow-outline rounded mx-4 lg:mx-24 text-gray-800 px-2 py-2"
+                                className="shadow appearance-none leading-tight focus:outline-none focus:shadow-outline rounded mx-4 lg:mx-24 text-gray-800 px-2 py-1"
                                 id='cityName'
                                 name='cityName'
                                 autoFocus
@@ -70,6 +79,18 @@ const FormInfo = () => {
 
                 </div>
             </div>
+
+
+            {/* <div>
+                {loading && (
+                    <h1>Weather Data</h1>
+                    {console.log(weatherData)}
+
+                )
+                }
+
+
+            </div> */}
 
         </>
     )

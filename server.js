@@ -11,11 +11,11 @@ app.use(express.json())
 app.use(cors())
 
 
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
 
-    // res.sendFile(__dirname + "/index.html")
-    res.send("Romba sandhosama iruku frans")
-})
+//     // res.sendFile(__dirname + "/index.html")
+//     res.send("Romba sandhosama iruku frans")
+// })
 
 app.post("/formdata", (req, res) => {
     const query = req.body.cityName
@@ -24,18 +24,19 @@ app.post("/formdata", (req, res) => {
     // const appId = "c2f2c006d14606aa404898a8efd5beb6"
     // const units = "metric"
 
-    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${appId}&units=${units}`
-
-
+    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${appId}&units=${units}
 
 })
 
-app.get("/weather", async (req, res) => {
+app.get("/weather/:id", async (req, res) => {
 
     try {
         console.log("received")
         // res.send()
-        const query = "belgium"
+        // const query = "belgium"
+        const query = req.params.id
+        console.log(req.params.id);
+
         const appId = "c2f2c006d14606aa404898a8efd5beb6"
         const units = "metric"
 
@@ -49,7 +50,7 @@ app.get("/weather", async (req, res) => {
             }
         }
         const response = await axios.get(config.url)
-        // console.log(response.data);
+        console.log(response.data);
         res.json(
             response.data
         )
