@@ -1,20 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import axios from "axios"
 
-const baseUrl = "http://localhost:5000/weather"
+const baseUrl = "http://localhost:5000"
 
 const FormInfo = () => {
-    const [data, setData] = useState([])
+    const [weatherData, setWeatherData] = useState([])
+    const nameRef = useRef()
+    const [name, setName] = useState("India")
 
-    async function handleDetails(e) {
-        e.preventDefault()
-        console.log("clicked handle")
-        axios.get(baseUrl).then(res => {
-            // setData(res.data)
-            console.log(res.data);
-
+    useEffect(() => {
+        // if (nameRef.current.value == null) return
+        axios.get(`${baseUrl}/weather`).then(res => {
+            setWeatherData(res.data)
+            console.log(weatherData)
+            console.log("rendered useEffect");
         })
-    }
+        // eslint-disable-next-line
+    }, [name])
+
+    // async function handleDetails(e) {
+    //     e.preventDefault()
+    //     console.log("clicked handle")
+
+    //     axios.get(`${baseUrl}/weather`).then(res => {
+    //         setWeatherData(res.data)
+    //         // console.log(res.data)
+    //         console.log(weatherData);
+
+    //     })
+    // }
 
     return (
         <>
@@ -23,31 +37,40 @@ const FormInfo = () => {
                 {/* <h1 className="flex font-semibold text-3xl">Weather App</h1> */}
                 <div className="container p-10 rounded bg-purple-800 text-white mx-10 lg:mx-48">
 
-                    <form >
+                    <form action={baseUrl + "/formdata"} method="POST" >
                         <div className="grid grid-cols-1 gap-4">
                             <div className="flex justify-center align-center pt-2">
                                 <label className="text-2xl font-semibold">Enter Country Name</label>
                             </div>
                             <input
                                 type='text'
+                                ref={nameRef}
                                 className="shadow appearance-none leading-tight focus:outline-none focus:shadow-outline rounded mx-4 lg:mx-24 text-gray-800 px-2 py-2"
                                 id='cityName'
                                 name='cityName'
+                                autoFocus
                                 required />
                         </div>
                         <div className="flex justify-center align-center">
+
+                            <button
+                                className="bg-green-700 hover:bg-green-600 w-auto px-5 mt-6 py-2 font-semibold rounded shadow appearance-none leading-tight focus:outline-none"
+                                type="submit"
+                                // onClick={(e) => handleDetails(e)}
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    setName(nameRef.current.value)
+                                    console.log(name)
+                                }}
+                            >
+                                Submit
+                            </button>
                         </div>
                     </form>
-                    <div className="flex">
-                        <button
-                            className="bg-green-700 hover:bg-green-600 w-auto px-5 mt-6 py-2 font-semibold rounded"
-                            type="submit"
-                            onClick={(e) => handleDetails(e)}>
-                            Submit
-                        </button>
-                    </div>
+
                 </div>
             </div>
+
         </>
     )
 }
