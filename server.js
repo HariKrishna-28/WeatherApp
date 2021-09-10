@@ -11,11 +11,11 @@ app.use(express.json())
 app.use(cors())
 
 
-// app.get("/", (req, res) => {
+app.get("/", (req, res) => {
 
-//     // res.sendFile(__dirname + "/index.html")
-//     res.send("Romba sandhosama iruku frans")
-// })
+    // res.sendFile(__dirname + "/index.html")
+    res.send("Romba sandhosama iruku frans")
+})
 
 app.post("/formdata", (req, res) => {
     const query = req.body.cityName
@@ -35,7 +35,7 @@ app.get("/weather/:id", async (req, res) => {
         // res.send()
         // const query = "belgium"
         const query = req.params.id
-        console.log(req.params.id);
+        // console.log(req.params.id);
 
         const appId = "c2f2c006d14606aa404898a8efd5beb6"
         const units = "metric"
@@ -50,7 +50,7 @@ app.get("/weather/:id", async (req, res) => {
             }
         }
         const response = await axios.get(config.url)
-        console.log(response.data);
+        // console.log(response.data)
         res.json(
             response.data
         )
@@ -77,6 +77,12 @@ app.get("/weather/:id", async (req, res) => {
 //     })
 
 // })
+
+// 404 page
+// app.use(function (req, res, next) {
+//     res.status(404).send("404!")
+// })
+
 app.listen(process.env.PORT || 5000, () => {
     console.log('Server running at port 5000!')
 })
