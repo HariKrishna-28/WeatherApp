@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import axios from "axios"
 
 // const baseUrl = "http://localhost:5000"
-const baseUrl = "http://localhost:5000"
+// Heroku server
+const baseUrl = "https://weather-app-using-api28.herokuapp.com"
 
 
 const FormInfo = () => {
