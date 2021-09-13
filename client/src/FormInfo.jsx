@@ -24,8 +24,13 @@ const FormInfo = () => {
 
         axios.get(`${baseUrl}/weather/${name}`).then(res => {
             setWeatherData(res.data)
-            setLoading(true)
-            setLoadAni(false)
+            if (res.data.success === false) {
+                setLoading(false)
+            }
+            else {
+                setLoading(true)
+                setLoadAni(false)
+            }
             // console.log("rendered useEffect");
 
 
@@ -72,8 +77,13 @@ const FormInfo = () => {
                                 onClick={(e) => {
                                     e.preventDefault()
                                     const CountryName = nameRef.current.value.charAt(0).toUpperCase() + nameRef.current.value.slice(1);
-                                    setName(CountryName)
-                                    setLoadAni(true)
+
+                                    if (CountryName !== name) {
+                                        setName(CountryName)
+                                        setLoadAni(true)
+
+                                    }
+                                    // nameRef.current.value = ""
 
                                     // console.log(name)
                                 }}
@@ -91,7 +101,7 @@ const FormInfo = () => {
             <div className="flex justify-center align-center">
 
                 {loadAni && loading ? <ScaleLoader color="white" className="mt-5" /> :
-                    !loading ? (<h1>Enter something in the box to know the weather</h1>) :
+                    !loading ? (<h1>Enter the location in the box to know the weather</h1>) :
                         loading && (
 
                             <div className="font-semibold">
