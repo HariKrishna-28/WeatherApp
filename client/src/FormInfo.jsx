@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import axios from "axios"
+import ScaleLoader from "react-spinners/ScaleLoader"
+
 
 // const baseUrl = "http://localhost:5000"
 // Heroku server
@@ -11,6 +13,7 @@ const FormInfo = () => {
     const nameRef = useRef()
     const [name, setName] = useState([])
     const [loading, setLoading] = useState(false)
+    const [loadAni, setLoadAni] = useState(false)
     // const [wdesc, setWdesc] = useState("")
     // const [temp, setTemp] = useState("")
     // const [pres, setPres] = useState("")
@@ -21,8 +24,9 @@ const FormInfo = () => {
 
         axios.get(`${baseUrl}/weather/${name}`).then(res => {
             setWeatherData(res.data)
-            console.log("rendered useEffect");
             setLoading(true)
+            setLoadAni(false)
+            // console.log("rendered useEffect");
 
 
         })
@@ -67,7 +71,10 @@ const FormInfo = () => {
                                 // onClick={(e) => handleDetails(e)}
                                 onClick={(e) => {
                                     e.preventDefault()
-                                    setName(nameRef.current.value)
+                                    const CountryName = nameRef.current.value.charAt(0).toUpperCase() + nameRef.current.value.slice(1);
+                                    setName(CountryName)
+                                    setLoadAni(true)
+
                                     // console.log(name)
                                 }}
                             >
@@ -82,33 +89,37 @@ const FormInfo = () => {
             </div>
 
             <div className="flex justify-center align-center">
-                {loading && (
-                    <div className="font-semibold">
 
-                        <div className="flex justify-center align-center">
-                            <h1 className="text-4xl">Weather Data</h1>
-                        </div>
+                {loadAni && loading ? <ScaleLoader color="white" className="mt-5" /> :
+                    !loading ? (<h1>Enter something in the box to know the weather</h1>) :
+                        loading && (
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 pt-3 gap-4">
-                            <h3>Country : {name}</h3>
-                            <h3>Coordinates : {weatherData.coord.lon}  {weatherData.coord.lat}</h3>
-                            <h3>Weather : {weatherData.weather[0].description}</h3>
-                            <h2>Pressure  : {weatherData.main.pressure}</h2>
-                            <h2>Temperature : {weatherData.main.temp}</h2>
-                            <h2>Humidity  : {weatherData.main.humidity}</h2>
-                            <h2>Sea Level  : {weatherData.main.sea_level}</h2>
-                            <h2>Ground Level  : {weatherData.main.grnd_level}</h2>
+                            <div className="font-semibold">
 
-                            {/* <h2>Wind: <br />
+                                <div className="flex justify-center align-center">
+                                    <h1 className="text-4xl pb-2">Weather Data</h1>
+                                </div>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 pt-3 gap-4 mb-10">
+                                    <h3>Country : {name}</h3>
+                                    <h3>Coordinates : {weatherData.coord.lon}  {weatherData.coord.lat}</h3>
+                                    <h3>Weather : {weatherData.weather[0].description}</h3>
+                                    <h2>Pressure  : {weatherData.main.pressure}</h2>
+                                    <h2>Temperature : {weatherData.main.temp}</h2>
+                                    <h2>Humidity  : {weatherData.main.humidity}</h2>
+                                    <h2>Sea Level  : {weatherData.main.sea_level}</h2>
+                                    <h2>Ground Level  : {weatherData.main.grnd_level}</h2>
+
+                                    {/* <h2>Wind: <br />
                                 Speed : {weatherData.wind.speed} <br />
                                 Degree : {weatherData.wind.deg}<br />
                                 gust : {weatherData.wind.gust}<br />
 
                             </h2> */}
-                        </div>
+                                </div>
 
-                    </div>
-                )
+                            </div>
+                        )
                 }
 
 
