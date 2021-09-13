@@ -5,7 +5,9 @@ import FormInfo from "./FormInfo";
 
 function App() {
   return (
-    <FormInfo />
+    <>
+      <FormInfo />
+    </>
   );
 }
 

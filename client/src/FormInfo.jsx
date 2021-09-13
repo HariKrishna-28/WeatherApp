@@ -14,22 +14,27 @@ const FormInfo = () => {
     const [name, setName] = useState([])
     const [loading, setLoading] = useState(false)
     const [loadAni, setLoadAni] = useState(false)
-    // const [wdesc, setWdesc] = useState("")
-    // const [temp, setTemp] = useState("")
-    // const [pres, setPres] = useState("")
-    // const [ico, setIco] = useState("")
+    const [url, setUrl] = useState("")
+
+
+    const hStyle = {
+        color: "rgba(139, 92, 246)",
+    }
 
 
     useEffect(() => {
 
         axios.get(`${baseUrl}/weather/${name}`).then(res => {
             setWeatherData(res.data)
+
             if (res.data.success === false) {
                 setLoading(false)
-            }
-            else {
+            } else {
+                nameRef.current.value = "";
                 setLoading(true)
                 setLoadAni(false)
+                const weatherIcon = res.data.weather[0].icon
+                setUrl(`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`)
             }
             // console.log("rendered useEffect");
 
@@ -46,10 +51,10 @@ const FormInfo = () => {
         <>
 
             <div className="flex justify-center items-center py-10 bg-black text-white">
-                {/* <h1 className="flex font-semibold text-3xl">Weather App</h1> */}
+
                 <div className="container p-10 rounded bg-purple-800 text-white mx-6 lg:mx-48">
 
-                    <form action={baseUrl + "/formdata"} method="POST" >
+                    <form >
 
                         <div className="grid grid-cols-1 gap-4">
 
@@ -73,17 +78,15 @@ const FormInfo = () => {
                             <button
                                 className="bg-green-700 hover:bg-green-600 w-auto px-5 mt-6 py-2 font-semibold rounded shadow appearance-none leading-tight focus:outline-none"
                                 type="submit"
-                                // onClick={(e) => handleDetails(e)}
+
                                 onClick={(e) => {
+
                                     e.preventDefault()
                                     const CountryName = nameRef.current.value.charAt(0).toUpperCase() + nameRef.current.value.slice(1);
-
-                                    if (CountryName !== name) {
+                                    if (CountryName !== name && CountryName.length !== 0) {
                                         setName(CountryName)
                                         setLoadAni(true)
-
                                     }
-                                    // nameRef.current.value = ""
 
                                     // console.log(name)
                                 }}
@@ -100,25 +103,27 @@ const FormInfo = () => {
 
             <div className="flex justify-center align-center">
 
-                {loadAni && loading ? <ScaleLoader color="white" className="mt-5" /> :
-                    !loading ? (<h1>Enter the location in the box to know the weather</h1>) :
-                        loading && (
+                {loadAni && loading ? <ScaleLoader color="rgba(139, 92, 246)" className="mt-5" /> :
+                    !loading ? (<h1 className="text-center">Enter the location in the box to know the weather</h1>) :
+                        loading &&
+                        (
 
                             <div className="font-semibold">
 
-                                <div className="flex justify-center align-center">
-                                    <h1 className="text-4xl pb-2">Weather Data</h1>
+                                <div className="flex flex-row justify-center align-center">
+                                    <h1 className="text-4xl pb-2 mt-5">Weather Data</h1>
+                                    <img src={url} alt="weather" width="100" />
                                 </div>
 
                                 <div className="grid grid-cols-1 lg:grid-cols-2 pt-3 gap-4 mb-10">
                                     <h3>Country : {name}</h3>
-                                    <h3>Coordinates : {weatherData.coord.lon}  {weatherData.coord.lat}</h3>
+                                    <h3>Coordinates : {weatherData.coord.lon} <span style={hStyle}>lon</span>  {weatherData.coord.lat} <span style={hStyle}>lat</span></h3>
                                     <h3>Weather : {weatherData.weather[0].description}</h3>
-                                    <h2>Pressure  : {weatherData.main.pressure}</h2>
-                                    <h2>Temperature : {weatherData.main.temp}</h2>
-                                    <h2>Humidity  : {weatherData.main.humidity}</h2>
-                                    <h2>Sea Level  : {weatherData.main.sea_level}</h2>
-                                    <h2>Ground Level  : {weatherData.main.grnd_level}</h2>
+                                    <h2>Pressure  : {weatherData.main.pressure} <span style={hStyle}>Pa</span></h2>
+                                    <h2>Temperature : {weatherData.main.temp} <span style={hStyle}>°C </span></h2>
+                                    <h2>Humidity  : {weatherData.main.humidity} <span style={hStyle}>% </span></h2>
+                                    <h2>Sea Level  : {weatherData.main.sea_level} <span style={hStyle}>m </span></h2>
+                                    <h2>Ground Level  : {weatherData.main.grnd_level} <span style={hStyle}>m </span></h2>
 
                                     {/* <h2>Wind: <br />
                                 Speed : {weatherData.wind.speed} <br />
