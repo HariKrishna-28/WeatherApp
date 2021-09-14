@@ -31,7 +31,8 @@ const FormInfo = () => {
                 setLoading(false)
             } else {
                 nameRef.current.value = "";
-                setLoading(true)
+                // setLoadAni(true)
+                // setLoading(true)
                 setLoadAni(false)
                 const weatherIcon = res.data.weather[0].icon
                 setUrl(`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`)
@@ -85,6 +86,7 @@ const FormInfo = () => {
                                     const CountryName = nameRef.current.value.charAt(0).toUpperCase() + nameRef.current.value.slice(1);
                                     if (CountryName !== name && CountryName.length !== 0) {
                                         setName(CountryName)
+                                        setLoading(true)
                                         setLoadAni(true)
                                     }
 
