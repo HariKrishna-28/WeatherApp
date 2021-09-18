@@ -105,7 +105,7 @@ const FormInfo = () => {
 
             <div className="flex justify-center align-center">
 
-                {loadAni && loading ? <ScaleLoader color="rgba(139, 92, 246)" className="mt-5" /> :
+                {loadAni && loading ? <ScaleLoader color="white" className="mt-5" /> :
                     !loading ? (<h1 className="text-center">Enter the location in the box to know the weather</h1>) :
                         loading &&
                         (
