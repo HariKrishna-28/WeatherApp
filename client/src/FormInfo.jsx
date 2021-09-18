@@ -3,9 +3,9 @@ import axios from "axios"
 import ScaleLoader from "react-spinners/ScaleLoader"
 
 
-// const baseUrl = "http://localhost:5000"
+const baseUrl = "http://localhost:5000"
 // Heroku server
-const baseUrl = "https://weather-app-using-api28.herokuapp.com"
+// const baseUrl = "https://weather-app-using-api28.herokuapp.com"
 
 
 const FormInfo = () => {
