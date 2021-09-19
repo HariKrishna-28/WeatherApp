@@ -3,18 +3,20 @@ import axios from "axios"
 import ScaleLoader from "react-spinners/ScaleLoader"
 
 
-const baseUrl = "http://localhost:5000"
+// const baseUrl = "http://localhost:5000"
 // Heroku server
-// const baseUrl = "https://weather-app-using-api28.herokuapp.com"
+const baseUrl = "https://weather-app-using-api28.herokuapp.com"
 
 
 const FormInfo = () => {
+
     const [weatherData, setWeatherData] = useState([])
     const nameRef = useRef()
     const [name, setName] = useState([])
     const [loading, setLoading] = useState(false)
     const [loadAni, setLoadAni] = useState(false)
     const [url, setUrl] = useState("")
+    const [msg, setMsg] = useState("Enter the location in the box to know the weather")
 
 
     const hStyle = {
@@ -28,6 +30,8 @@ const FormInfo = () => {
             setWeatherData(res.data)
 
             if (res.data.success === false) {
+                // alert("Please enter a valid name")
+                setMsg("Please enter a valid name")
                 setLoading(false)
             } else {
                 nameRef.current.value = "";
@@ -106,7 +110,7 @@ const FormInfo = () => {
             <div className="flex justify-center align-center">
 
                 {loadAni && loading ? <ScaleLoader color="white" className="mt-5" /> :
-                    !loading ? (<h1 className="text-center">Enter the location in the box to know the weather</h1>) :
+                    !loading ? (<h1 className="text-center">{msg}</h1>) :
                         loading &&
                         (
 
