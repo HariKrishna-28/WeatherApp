@@ -64,7 +64,7 @@ const FormInfo = () => {
                         <div className="grid grid-cols-1 gap-4">
 
                             <div className="flex justify-center align-center pt-2">
-                                <label className="text-2xl font-semibold text-center">Enter Country Name</label>
+                                <label className="text-2xl font-semibold text-center">Enter a Location</label>
                             </div>
 
                             <input
