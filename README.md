@@ -13,11 +13,11 @@
 
 ## Output
 
-<!-- ![Logo](https://github.com/HariKrishna-28/WeatherApp/blob/main/output/WeatherAPp.gif) -->
+![Logo](https://github.com/HariKrishna-28/WeatherApp/blob/main/output/OutputDemo.gif)
 
-![](output/weatherdata.jpeg)
+<!-- ![](output/weatherdata.jpeg)
 ![](output/load.jpeg)
-![](output/name.jpeg)
+![](output/name.jpeg) -->
 
 <!-- <img src = "/output/name.jpg"><br>rb!?&S(pd8Wd53Y
 <img src = "/output/load.jpg"><br>
