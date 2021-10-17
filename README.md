@@ -13,9 +13,11 @@
 
 ## ScreenShots
 
-![](output/weatherdata.jpeg)
-![](output/load.jpeg)
-![](output/name.jpeg)
+![](output/WeatherApp.gif)
+
+<!-- ![](output/weatherdata.jpeg) -->
+<!-- ![](output/load.jpeg) -->
+<!-- ![](output/name.jpeg) -->
 
 <!-- <img src = "/output/name.jpg"><br>rb!?&S(pd8Wd53Y
 <img src = "/output/load.jpg"><br>
