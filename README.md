@@ -13,7 +13,7 @@
 
 ## Output
 
-![Logo](output/WeatherApp.gif)
+![Logo](https://github.com/HariKrishna-28/WeatherApp/blob/main/output/WeatherAPp.gif)
 
 <!-- ![](output/weatherdata.jpeg) -->
 <!-- ![](output/load.jpeg) -->
