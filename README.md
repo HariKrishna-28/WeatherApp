@@ -11,9 +11,9 @@
 | **[Tailwind CSS](https://tailwindcss.com/)**             | CSS Framework |
 | **[OpenWeatherMap Api](https://openweathermap.org/api)** | Weather API   |
 
-## ScreenShots
+## Output
 
-![](output/WeatherApp.gif)
+![Logo](output/WeatherApp.gif)
 
 <!-- ![](output/weatherdata.jpeg) -->
 <!-- ![](output/load.jpeg) -->
