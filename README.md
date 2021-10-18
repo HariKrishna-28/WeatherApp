@@ -3,10 +3,8 @@
 
 > ### _Simple weather application built using ReactJs, ExpressJs and OpenWeatherMap API_
 
-<a href = "https://weather-app-28.netlify.app/">
-<h3>View demo</h3>
-</a>
-</div>
+<h3><a href = "https://weather-app-28.netlify.app/">View </a></h3>
+</div> <br>
 <!-- # [Weather Application](https://weather-app-28.netlify.app/) -->
 
 ## Tech Stack and Dependencies
@@ -17,6 +15,8 @@
 | **[ExpressJs](https://expressjs.com)**                   | Back End      |
 | **[Tailwind CSS](https://tailwindcss.com/)**             | CSS Framework |
 | **[OpenWeatherMap Api](https://openweathermap.org/api)** | Weather API   |
+
+<br>
 
 ## Demo
 
@@ -30,6 +30,10 @@
 <img src = "/output/load.jpg"><br>
 <img src = "/output/weatherdata.jpg"><br> -->
 
+<br>
+
 > ### _As the server is hosted on a free Heroku account, the server enters ‘sleep mode’ when not in use. If you notice a delay, please allow a few seconds for the servers to wake up._
+
+<br>
 
 ## Find the app [here](https://weather-app-28.netlify.app/).
