@@ -3,9 +3,11 @@
 
 > ### _Simple weather application built using ReactJs, ExpressJs and OpenWeatherMap API_
 
-<h3><a href = "https://weather-app-28.netlify.app/">View </a></h3>
-</div> <br>
+## [View Demo](https://weather-app-28.netlify.app)
+
 <!-- # [Weather Application](https://weather-app-28.netlify.app/) -->
+</div>
+<br>
 
 ## Tech Stack and Dependencies
 
