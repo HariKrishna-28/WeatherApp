@@ -11,12 +11,13 @@
 
 ## Tech Stack and Dependencies
 
-| Name                                                     | Description   |
-| -------------------------------------------------------- | ------------- |
-| **[ReactJs](https://reactjs.org)**                       | Front End     |
-| **[ExpressJs](https://expressjs.com)**                   | Back End      |
-| **[Tailwind CSS](https://tailwindcss.com/)**             | CSS Framework |
-| **[OpenWeatherMap Api](https://openweathermap.org/api)** | Weather API   |
+| Name                                                     | Description                                           |
+| -------------------------------------------------------- | ----------------------------------------------------- |
+| **[ReactJs](https://reactjs.org)**                       | Front End                                             |
+| **[ExpressJs](https://expressjs.com)**                   | Back End                                              |
+| **[Tailwind CSS](https://tailwindcss.com/)**             | CSS Framework                                         |
+| **[OpenWeatherMap Api](https://openweathermap.org/api)** | Weather API                                           |
+| **[Axios](https://axios-http.com/)**                     | Promise-based HTTP Client for node.js and the browser |
 
 <br>
 
