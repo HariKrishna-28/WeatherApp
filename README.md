@@ -1,6 +1,13 @@
-# [Weather Application](https://weather-app-28.netlify.app/)
+<div align="center">
+<h1>Weather Application</h1> <br>
 
 > ### _Simple weather application built using ReactJs, ExpressJs and OpenWeatherMap API_
+
+<a href = "https://weather-app-28.netlify.app/">
+<h3>View demo</h3>
+</a>
+</div>
+<!-- # [Weather Application](https://weather-app-28.netlify.app/) -->
 
 ## Tech Stack and Dependencies
 
@@ -11,9 +18,9 @@
 | **[Tailwind CSS](https://tailwindcss.com/)**             | CSS Framework |
 | **[OpenWeatherMap Api](https://openweathermap.org/api)** | Weather API   |
 
-## Output
+## Demo
 
-![Logo](https://github.com/HariKrishna-28/WeatherApp/blob/main/output/OutputDemo.gif)
+![Demo](https://github.com/HariKrishna-28/WeatherApp/blob/main/output/OutputDemo.gif)
 
 <!-- ![](output/weatherdata.jpeg)
 ![](output/load.jpeg)
