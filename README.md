@@ -41,8 +41,8 @@
 
 ## Find the app [here](https://weather-app-28.netlify.app/).
 
-## Netlify Site Status
+<!-- ## Netlify Site Status
 
 <br>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/22da2965-7f0b-42b9-ac3e-7436a05d51de/deploy-status)](https://app.netlify.com/sites/weather-app-28/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/22da2965-7f0b-42b9-ac3e-7436a05d51de/deploy-status)](https://app.netlify.com/sites/weather-app-28/deploys) -->
