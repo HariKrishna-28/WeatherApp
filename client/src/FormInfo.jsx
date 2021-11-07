@@ -50,7 +50,7 @@ const FormInfo = () => {
 
 
 
-    console.log(weatherData)
+    // console.log(weatherData)
 
     return (
         <>
